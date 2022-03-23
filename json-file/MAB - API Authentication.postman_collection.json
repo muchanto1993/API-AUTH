@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "9143b511-403e-44db-af57-4b01ca8b246a",
+		"name": "MAB - API Authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Encrypt Request Body",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestTimeStamp\": \"2019-02-22 11:18:08.818\",\n    \"transactionId\": \"12345678\",\n    \"mitraCustomerId\": \"\",\n    \"accountNo\": \"1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/encryptRequestBody",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"encryptRequestBody"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decrypt Request Body",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"encryptString\" : \"eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwiemlwIjoiREVGIn0.-JxYf5bJWAhMMvYG-1zu8-k97kEL-PNQ9IFvfYlgEVqSrMR2EVRBv-VUFMQUashzcEe54dnKnKAZRuJxv_TotBywXhvs7tE4.IYdeS3dKPsaQNOR5vVN3eg.ZBSXUCGnsjyS3-s7VEFe2ZVeg8wgiaO_2_2co-b-oEl20n-sN2DMWAgAcJJEP9f4PRfLPAlh8qYMO97TgM1LWuZiAe0_xSWO6Up0Y_fuMRw_L8b66nGujUsOidmrrpIg7Oj-WaAX4Sv4KwKb5xHtTg.Q83p8AKvT4hpfnJUFUKATG1woFhC1Qt9VdkchiWay4o\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/decryptRequestBody",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"decryptRequestBody"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Signature",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apiId\" : \"SFMID6vBTApBSMZLA302fh12j12OVA1B\",\n    \"apiKey\" : \"APIKEYvm20rj3nfd9q2vl329fb489g3298dh2bd72bsd\",\n    \"transactionType\" : \"MTR-INQACCT-MITRA\",\n    \"httpMethod\" : \"POST\",\n    \"requestBodyEncrypt\" : \"eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwiemlwIjoiREVGIn0.-JxYf5bJWAhMMvYG-1zu8-k97kEL-PNQ9IFvfYlgEVqSrMR2EVRBv-VUFMQUashzcEe54dnKnKAZRuJxv_TotBywXhvs7tE4.IYdeS3dKPsaQNOR5vVN3eg.ZBSXUCGnsjyS3-s7VEFe2ZVeg8wgiaO_2_2co-b-oEl20n-sN2DMWAgAcJJEP9f4PRfLPAlh8qYMO97TgM1LWuZiAe0_xSWO6Up0Y_fuMRw_L8b66nGujUsOidmrrpIg7Oj-WaAX4Sv4KwKb5xHtTg.Q83p8AKvT4hpfnJUFUKATG1woFhC1Qt9VdkchiWay4o\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/sign",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"sign"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate JWT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apiId\" : \"SFMID6vBTApBSMZLA302fh12j12OVA1B\",\n    \"signatureBase64\" : \"0c5gpEEwgs/xcuU4iz3aHKYoNULN5gmD/yPimmVVnJw=\",\n    \"jwtKey\" : \"JWTKEY0jb3498hfn398fhSnkJksmwfsSs421CSid9822\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/jwt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"jwt"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

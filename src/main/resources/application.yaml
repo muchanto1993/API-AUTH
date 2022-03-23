@@ -1,0 +1,6 @@
+jweKey: JWEKEY3982fbkKSdvCk7ladfadn893bdkjfaASmne00
+
+server:
+  servlet:
+    context-path: /v1
+  port: 8081
